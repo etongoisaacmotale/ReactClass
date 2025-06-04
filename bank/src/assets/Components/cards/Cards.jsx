@@ -16,7 +16,7 @@ class Cards extends Component {
   handleClick() {
     this.props.onCardClick(this.props.buttonText);
 
-    this.setState({ backgroundColor: 'red' });
+    this.setState({ backgroundColor: 'orange' });
   }
 
   render() {
