@@ -1,7 +1,7 @@
 import './App.css';
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
+import DefaultHome from './assets/Components/default/DefaultHome';
 import Home from './assets/Components/home/Home';
 import Header from './assets/Components/header/Header';
 import Cards from './assets/Components/cards/Cards';
@@ -41,15 +41,16 @@ class App extends Component {
 
   render() {
     const cardData = this.getCardData();
-
+  
     return (
-      <Router>
+      <BrowserRouter>
         <div className="container">
           <Header />
-
+  
           <Routes>
+            <Route path="/" element={<DefaultHome />} />
             <Route
-              path="/"
+              path="/home"
               element={
                 <>
                   <Home price={this.state.homeTitle} />
@@ -69,14 +70,18 @@ class App extends Component {
                 </>
               }
             />
+            <Route path="/plans" element={<Cplan />} />
             <Route path="/table" element={<Table />} />
             <Route path="/footer" element={<Footer />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+  
+          <Footer />
         </div>
-      </Router>
+      </BrowserRouter>
     );
   }
+  
 }
 
 export default App;
